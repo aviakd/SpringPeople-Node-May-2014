@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Closures Demo</title>
+	<script type="text/javascript">
+	(function (window,document){
+		window.addEventListener("DOMContentLoaded",init);
+		var counter = 0;
+		function init(){
+			document.getElementById("btnTrack").addEventListener("click",onBtnTrackClick);
+		}
+		function onBtnTrackClick(){
+			//do something
+			var x = 10;
+			++counter;
+			displayCount(counter);
+		}
+		function displayCount(count){
+			document.getElementById("divMessage").innerHTML = count;
+		}
+	})(window,document);
+	
+	</script>
+</head>
+<body>
+	<input type="button" value="Track" id="btnTrack">
+	<div id="divMessage"></div>
+</body>
+</html>
