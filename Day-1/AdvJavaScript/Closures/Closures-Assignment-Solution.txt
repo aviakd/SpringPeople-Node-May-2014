@@ -1,0 +1,50 @@
+Write an API that will find whether the given number is a prime number or not.
+
+1000
+1000
+
+
+
+function isPrime(n){
+	if (n<=3) return true;
+	for(var i=2;i<=(n/2);i++)
+		if (n % i === 0) return false;
+	return true;
+}
+
+function isPrime(n){
+	if (n<=3) return true;
+	if (typeof isPrime[n] !== "undefined") {
+		console.log("From cache...")
+		return isPrime[n];
+	}
+	isPrime[n] = true;
+	for(var i=2;i<=(n/2);i++){
+		if (n % i === 0) {
+			isPrime[n] = false;
+			break;
+		}
+	}
+	console.log("Freshly brewed....");
+	return isPrime[n];
+}
+
+function getPrimeFinder(){
+	var result = {0 : true, 1 : true, 2 : true, 3 : true}
+	function isPrime(n){
+		if (typeof result[n] !== "undefined"){
+			console.log("From cache...")
+			return result[n];
+		}
+		result[n] = true;
+		for(var i=2;i<=(n/2);i++){
+			if (n % i === 0) {
+				result[n] = false;
+				break;
+			}
+		}
+		console.log("Freshly brewed....");
+		return result[n];
+	}
+	return isPrime;
+}
