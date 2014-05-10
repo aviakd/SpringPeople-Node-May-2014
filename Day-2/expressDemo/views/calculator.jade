@@ -1,0 +1,17 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Calculator
+	body
+		form(method='post')
+			div
+				span Number1 :
+				input(type='text', name='number1', value=number1)
+			div
+				span Number2 :
+				input(type='text', name='number2', value=number2)
+			div
+				input(type='submit', value="Add")
+			div.result= addResult
+			
